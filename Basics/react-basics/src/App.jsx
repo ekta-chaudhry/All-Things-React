@@ -1,19 +1,14 @@
 import { useState } from "react";
 
 function App() {
-  return <div>Hi There!<Counter></Counter></div>;
+  const [currentTab, setCurrentTab] = useState("Feed");
+  return <div>
+    <button onClick={() => setCurrentTab("Feed")} style={{color: currentTab == "Feed" ? "red": "black"}}>Feed</button>
+    <button onClick={() => setCurrentTab("Notifications")} style={{color: currentTab == "Notifications" ? "red": "black"}}>Notifications</button>
+    <button onClick={() => setCurrentTab("Messages")} style={{color: currentTab == "Messages" ? "red": "black"}}>Messages</button>
+    <button onClick={() => setCurrentTab("Jobs")} style={{color: currentTab == "Jobs" ? "red": "black"}}>Jobs</button>
+  </div>
 }
 
-function Counter() {
-  const [count, setCount] = useState(0);
-  // setInterval(function() {
-  //   setCount(count + 1);
-  // }, 1000);
-  // function increaseCount() {
-  //   setCount(count + 1);
-  // }
-  return <div>
-    <h1>{count}</h1>
-  </div>;
-}
+
 export default App

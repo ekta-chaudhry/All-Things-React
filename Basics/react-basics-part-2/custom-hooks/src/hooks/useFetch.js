@@ -18,17 +18,20 @@ export function usePostTitle() {
 
 export function useFetch(url) {
   const [finalData, setFinalData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   async function getData() {
+    setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch(url);
     const data = await response.json();
     console.log(`data: ${JSON.stringify(data)}`)
     setFinalData(data);
+    setLoading(false);
   }
 
   useEffect(() => {
     getData();
   }, [url]);
-  return finalData;
+  return {finalData, loading};
 }

@@ -16,7 +16,7 @@ export const messagingAtom = atom({
 
 export const notificationsAtom = atom({
     key: "notificationsAtom",
-    default: 12
+    default: 15
 })
 
 export const totalNotifsCountSelector = selector({
